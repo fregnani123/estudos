@@ -28,7 +28,7 @@ const counter2Reducer = (state = initialState2, action) => {
     }
 };
 const counter3Reducer = (state = initialState3, action) => {
-    if (action.payload !== 'counter2') return state;
+    if (action.payload !== 'counter3') return state;
     switch (action.type) {
         case 'INCREMENT':
             return { count: state.count + 1 };
