@@ -1,11 +1,10 @@
-// src/reducer.js
+import { combineReducers } from 'redux';
 
-const initialState = {
-    count: 0
-};
+const initialState1 = { count: 0 };
+const initialState2 = { count: 0 };
 
-const counterReducer = (state = initialState, action) => {
-    
+const counter1Reducer = (state = initialState1, action) => {
+    if (action.payload !== 'counter1') return state;
     switch (action.type) {
         case 'INCREMENT':
             return { count: state.count + 1 };
@@ -16,4 +15,30 @@ const counterReducer = (state = initialState, action) => {
     }
 };
 
-export default counterReducer;
+const counter2Reducer = (state = initialState2, action) => {
+    if (action.payload !== 'counter2') return state;
+    switch (action.type) {
+        case 'INCREMENT':
+            return { count: state.count + 1 };
+        case 'DECREMENT':
+            return { count: state.count - 1 };
+        default:
+            return state;
+    }
+};
+const counter3Reducer = (state = initialState2, action) => {
+    if (action.payload !== 'counter2') return state;
+    switch (action.type) {
+        case 'INCREMENT':
+            return { count: state.count + 1 };
+        case 'DECREMENT':
+            return { count: state.count - 1 };
+        default:
+            return state;
+    }
+};
+
+export default combineReducers({
+    counter1: counter1Reducer,
+    counter2: counter2Reducer
+});

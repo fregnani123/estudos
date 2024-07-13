@@ -1,15 +1,15 @@
 
-//src/actions.js
 
-export const increment = () => {
+export const increment = (counterId) => {
     return {
-        type: 'INCREMENT'
+        type: 'INCREMENT',
+        payload: counterId
     };
 };
 
-
-export const decrement = () => {
+export const decrement = (counterId) => {
     return {
-        type: 'DECREMENT'
+        type: 'DECREMENT',
+        payload: counterId
     };
 };
